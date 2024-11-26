@@ -3,9 +3,9 @@ import {IDatabase} from "pg-promise";
 import {IClient} from "pg-promise/typescript/pg-subset";
 import serverConfig from './config/server.config.json'
 const host:string = serverConfig.host
-const port:string=process.env.PORT ||serverConfig.port.toString()
+const port:string=process.env.PORT ||serverConfig.port.toString() || '4000'
 export const serverStart= async (app:Express,db:IDatabase<{},IClient>)=>{
-    app.listen(+port,host,async()=>{
+    app.listen(+port, async()=>{
         try {
             await db.connect()
             console.log('connected database')
