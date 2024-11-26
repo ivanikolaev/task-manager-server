@@ -7,6 +7,8 @@ import tasksRoute from "./routes/tasksRoute";
 import recordingRoute from './routes/recordingRoute';
 
 const app: Express = express()
+const { swaggerUi, swaggerSpec } = require('./swagger');
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(express.json())
 app.use(setCors)
 app.use('/auth', authRouter)
