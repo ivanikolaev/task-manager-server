@@ -1,5 +1,5 @@
 {
-  "host": "task-manager-server-heom.onrender.com",
+  "host": "localhost",
   "port": 4000,
   "access_token": {
     "secret_key": "ACCESS_TOKEN",
