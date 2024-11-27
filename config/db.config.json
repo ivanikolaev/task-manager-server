@@ -1,7 +1,7 @@
 {
-  "user": "postgres",
-  "password": "vjcz2004",
-  "host": "localhost",
+  "user": "user",
+  "password": "JgSbzukUOWpp8d2nxVl2ZyZKXICKEqOs",
+  "host": "dpg-ct34c4ogph6c73bpmaog-a.oregon-postgres.render.com",
   "port": 5432,
-  "database": "manager"
+  "database": "manager_z8uh"
 }
