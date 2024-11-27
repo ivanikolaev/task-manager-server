@@ -10,7 +10,7 @@ export const serverStart= async (app:Express,db:IDatabase<{},IClient>)=>{
             await db.connect()
             console.log('connected database')
         }catch (e){
-            console.log('not connected database')
+            console.log('not connected database', e)
         }
         console.log('server listening on port '+port)
     })

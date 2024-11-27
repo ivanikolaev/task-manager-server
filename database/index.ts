@@ -1,12 +1,15 @@
-import {IConnectionDB} from "../config/types";
-import pg, {IDatabase} from "pg-promise";
-import {IClient} from "pg-promise/typescript/pg-subset";
-import dbConfig from '../config/db.config.json'
-const connection:IConnectionDB={
-    user:dbConfig.user,
-    password:dbConfig.password,
-    port:dbConfig.port,
-    host:dbConfig.host,
-    database:dbConfig.database
-}
-export const db:IDatabase<{},IClient>=pg()(connection)
+import pgPromise from "pg-promise";
+import dbConfig from "../config/db.config.json";
+
+const pgp = pgPromise();
+
+export const db = pgp({
+  user: dbConfig.user,
+  password: dbConfig.password,
+  host: dbConfig.host,
+  port: dbConfig.port,
+  database: dbConfig.database,
+  ssl: {
+    rejectUnauthorized: false, // Не проверять сертификат (подходит для Render)
+  },
+});
