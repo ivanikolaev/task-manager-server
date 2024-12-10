@@ -10,12 +10,18 @@ import path from 'path';
 const app: Express = express();
 const { swaggerUi, swaggerSpec } = require('./swagger');
 
+// Маршрут для спецификации в формате JSON
+app.get('/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpec);
+});
+
 // Swagger UI
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Redoc
 app.get('/redoc', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, '..', 'redoc.html'));
+    res.sendFile(path.join(__dirname, 'redoc.html'));
 });
 
 // Redoc-spec JSON (для передачи спецификации в Redoc)

@@ -9,7 +9,4 @@ export const db = pgp({
   host: dbConfig.host,
   port: dbConfig.port,
   database: dbConfig.database,
-  ssl: {
-    rejectUnauthorized: false, // Не проверять сертификат (подходит для Render)
-  },
 });

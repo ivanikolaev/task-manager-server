@@ -1,22 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>API Documentation</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Подключение ReDoc -->
-    <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"></script>
-</head>
-<body>
-    <!-- Контейнер для документации -->
-    <div id="redoc-container"></div>
+    <script src="https://cdn.redoc.ly/redoc/latest/bundles/redoc.standalone.js"></script>
+  </head>
+  <body>
+    <redoc spec-url="/swagger.json"></redoc>
     <script>
-        // Инициализация ReDoc с указанием URL OpenAPI документа
-        Redoc.init(
-            '/path/to/your/openapi.json', // Укажите путь к вашему OpenAPI JSON/YAML
-            {}, // Параметры конфигурации (если нужно)
-            document.getElementById('redoc-container') // HTML-элемент для рендера
-        );
+      Redoc.init('/swagger.json', {}, document.querySelector('redoc'));
     </script>
-</body>
+  </body>
 </html>
